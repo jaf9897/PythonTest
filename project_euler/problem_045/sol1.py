@@ -12,6 +12,7 @@ All triangle numbers are hexagonal numbers.
 T(2n-1) = n * (2 * n - 1) = H(n)
 So we shall check only for hexagonal numbers which are also pentagonal.
 """
+import math
 
 
 def hexagonal_num(n: int) -> int:
@@ -38,7 +39,7 @@ def is_pentagonal(n: int) -> bool:
     True
     """
     root = (1 + 24 * n) ** 0.5
-    return ((1 + root) / 6) % 1 == 0
+    return math.isclose(((1 + root) / 6) % 1, 0, rel_tol=1e-09, abs_tol=0.0)
 
 
 def solution(start: int = 144) -> int:

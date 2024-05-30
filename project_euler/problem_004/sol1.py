@@ -11,6 +11,7 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 References:
     - https://en.wikipedia.org/wiki/Palindromic_number
 """
+import math
 
 
 def solution(n: int = 998001) -> int:
@@ -41,7 +42,7 @@ def solution(n: int = 998001) -> int:
             # if 'number' is a product of two 3-digit numbers
             # then number is the answer otherwise fetch next number.
             while divisor != 99:
-                if (number % divisor == 0) and (len(str(number // divisor)) == 3.0):
+                if (number % divisor == 0) and math.isclose(len(str(number // divisor)), 3.0, rel_tol=1e-09, abs_tol=0.0):
                     return number
                 divisor -= 1
     raise ValueError("That number is larger than our acceptable range.")

@@ -16,6 +16,7 @@ For more info: https://en.wikipedia.org/wiki/Projectile_motion
 # Importing packages
 from math import radians as angle_to_radians
 from math import sin
+import math
 
 # Acceleration Constant on Earth (unit m/s^2)
 g = 9.80665
@@ -128,9 +129,9 @@ def test_motion() -> None:
     >>> test_motion()
     """
     v0, angle = 25, 20
-    assert horizontal_distance(v0, angle) == 40.97
-    assert max_height(v0, angle) == 3.73
-    assert total_time(v0, angle) == 1.74
+    assert math.isclose(horizontal_distance(v0, angle), 40.97, rel_tol=1e-09, abs_tol=0.0)
+    assert math.isclose(max_height(v0, angle), 3.73, rel_tol=1e-09, abs_tol=0.0)
+    assert math.isclose(total_time(v0, angle), 1.74, rel_tol=1e-09, abs_tol=0.0)
 
 
 if __name__ == "__main__":

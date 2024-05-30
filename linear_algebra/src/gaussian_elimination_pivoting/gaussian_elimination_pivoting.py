@@ -1,4 +1,5 @@
 import numpy as np
+import math
 
 matrix = np.array(
     [
@@ -45,7 +46,7 @@ def solve_linear_system(matrix: np.ndarray) -> np.ndarray:
         for i in range(column_num, num_of_columns):
             if abs(ab[i][column_num]) > abs(ab[column_num][column_num]):
                 ab[[column_num, i]] = ab[[i, column_num]]
-                if ab[column_num, column_num] == 0.0:
+                if math.isclose(ab[column_num, column_num], 0.0, rel_tol=1e-09, abs_tol=0.0):
                     raise ValueError("Matrix is not correct")
             else:
                 pass
@@ -62,7 +63,7 @@ def solve_linear_system(matrix: np.ndarray) -> np.ndarray:
         for i in range(column_num, num_of_columns):
             if abs(ab[i][column_num]) > abs(ab[column_num][column_num]):
                 ab[[column_num, i]] = ab[[i, column_num]]
-                if ab[column_num, column_num] == 0.0:
+                if math.isclose(ab[column_num, column_num], 0.0, rel_tol=1e-09, abs_tol=0.0):
                     raise ValueError("Matrix is not correct")
             else:
                 pass

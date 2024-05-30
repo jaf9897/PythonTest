@@ -3,6 +3,7 @@ from __future__ import annotations
 from collections.abc import Iterator
 from dataclasses import dataclass
 from typing import Any
+import math
 
 
 @dataclass
@@ -452,7 +453,7 @@ def test_singly_linked_list_2() -> None:
 
     # Delete the tail
     result = linked_list.delete_tail()
-    assert result == 12.2
+    assert math.isclose(result, 12.2, rel_tol=1e-09, abs_tol=0.0)
     assert (
         str(linked_list) == "100 -> Node(77345112) -> dlrow olleH -> 7 -> 5555 -> 0 -> "
         "-192.55555 -> Hello, world! -> 77.9 -> Node(10) -> None -> None"

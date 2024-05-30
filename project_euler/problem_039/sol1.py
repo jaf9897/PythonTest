@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import typing
 from collections import Counter
+import math
 
 
 def pythagorean_triple(max_perimeter: int) -> typing.Counter[int]:
@@ -29,7 +30,7 @@ def pythagorean_triple(max_perimeter: int) -> typing.Counter[int]:
     for base in range(1, max_perimeter + 1):
         for perpendicular in range(base, max_perimeter + 1):
             hypotenuse = (base * base + perpendicular * perpendicular) ** 0.5
-            if hypotenuse == int(hypotenuse):
+            if math.isclose(hypotenuse, int(hypotenuse), rel_tol=1e-09, abs_tol=0.0):
                 perimeter = int(base + perpendicular + hypotenuse)
                 if perimeter > max_perimeter:
                     continue

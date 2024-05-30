@@ -6,6 +6,7 @@ Find root of function in interval [a, b] (Or find a value of x such that f(x) is
 
 https://en.wikipedia.org/wiki/Bisection_method
 """
+import math
 
 
 def equation(x: float) -> float:
@@ -44,7 +45,7 @@ def bisection(a: float, b: float) -> float:
         # Find middle point
         c = (a + b) / 2
         # Check if middle point is root
-        if equation(c) == 0.0:
+        if math.isclose(equation(c), 0.0, rel_tol=1e-09, abs_tol=0.0):
             break
         # Decide the side to repeat the steps
         if equation(c) * equation(a) < 0:
